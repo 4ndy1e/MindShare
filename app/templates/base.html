@@ -1,0 +1,17 @@
+<!-- jinja tempalte inheratence -->
+<!DOCTYPE html>
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }} - MindShare</title>
+    {% else %}
+    <title>Welcome to MindShare</title>
+    {% endif %}
+  </head>
+  <body>
+    <div>MindShare: <a href="/index">Home</a></div>
+    <hr />
+    <!-- pages that inherit will place content in the block content -->
+    {% block content %}{% endblock %}
+  </body>
+</html>
