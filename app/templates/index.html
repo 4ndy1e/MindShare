@@ -2,7 +2,7 @@
 {% extends 'base.html' %} 
 
 {% block content %}
-<h1>Hello, {{user.username}}!</h1>
+<h1>Hello, {{current_user.username}}!</h1>
 <p>Welcome to the home page!</p>
 
 {% for post in posts %}
