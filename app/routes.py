@@ -48,7 +48,7 @@ def login():
     if not next_page or urlsplit(next_page).netloc != '':
       next_page = url_for('index')
 
-    return url_for(next_page)
+    return redirect(next_page)
 
   return render_template('login.html', title="Sign In", form=form)
 
