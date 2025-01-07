@@ -13,7 +13,11 @@
       MindShare:
       <!-- url_for dynamically generates the URLS using function names from route -->
       <a href="{{ url_for('index') }}">Home</a>
-      <a href="{{ url_for('login') }}"> Sign In </a>
+      {% if current_user.is_anonymous %}
+      <a href="{{ url_for('login') }}"> Login </a>
+      {% else %}
+      <a href="{{ url_for('logout') }}"> Logout </a>
+      {% endif %}
     </div>
     <hr />
     {% with messages = get_flashed_messages() %} {% if messages %}
