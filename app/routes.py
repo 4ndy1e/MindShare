@@ -73,3 +73,17 @@ def register():
     flash('Congratulations, you are now registered!')
     return redirect(url_for('login'))
   return render_template('register.html', title='Register', form=form)
+
+@app.route('/user/<username>')
+@login_required
+def user(username):
+  # similar to scalar() but raises 404 instead of None
+  user = db.first_or_404
+
+  # fake posts
+  posts = [
+    {'author' : user, 'body' : 'Test post #1'},
+    {'author' : user, 'body' : 'Test post #2'}
+  ]
+
+  return render_template('user.html', user=user, posts=posts)
