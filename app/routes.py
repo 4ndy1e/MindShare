@@ -78,7 +78,7 @@ def register():
 @login_required
 def user(username):
   # similar to scalar() but raises 404 instead of None
-  user = db.first_or_404
+  user = db.first_or_404(sa.select(User).where(User.username == username))
 
   # fake posts
   posts = [
