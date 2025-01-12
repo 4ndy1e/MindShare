@@ -17,4 +17,4 @@ login = LoginManager(app)
 login.login_view = 'login'
 
 # place at bottom since routes module needs to import the app variable defined in this script
-from app import routes, models
+from app import routes, models, errors

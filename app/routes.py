@@ -108,7 +108,7 @@ def edit_profile():
     flash('Your changes have been saved!')
     return redirect(url_for('edit_profile'))
   elif request.method == 'GET':
-    # prepopulate fields with the data that is current stored in db
+    # prepopulate fields with the data that is current stored in db for user to edit
     form.username.data = current_user.username
     form.about_me.data = current_user.about_me
 
