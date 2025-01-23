@@ -98,7 +98,7 @@ def user(username):
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
 def edit_profile():
-  form = EditProfileForm()
+  form = EditProfileForm(current_user.username)
 
   if form.validate_on_submit():
     current_user.username = form.username.data
@@ -108,7 +108,7 @@ def edit_profile():
     flash('Your changes have been saved!')
     return redirect(url_for('edit_profile'))
   elif request.method == 'GET':
-    # prepopulate fields with the data that is current stored in db
+    # prepopulate fields with the data that is current stored in db for user to edit
     form.username.data = current_user.username
     form.about_me.data = current_user.about_me
 
